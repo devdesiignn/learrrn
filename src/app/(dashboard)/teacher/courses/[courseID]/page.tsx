@@ -1,10 +1,11 @@
+import { LayoutDashboard } from "lucide-react";
+import { redirect } from "next/navigation";
+
 import { database } from "@/lib/database";
 import { fetchUserID } from "@/utils/fetchUserID";
 import IconBadge from "@/components/IconBadge";
-
-import { LayoutDashboard } from "lucide-react";
-import { redirect } from "next/navigation";
 import TitleForm from "./_components/TitleForm";
+import DescriptionForm from "./_components/DescriptionForm";
 
 export default async function CoursePage({ params }: { params: { courseID: string } }) {
   const userID = fetchUserID();
@@ -44,6 +45,8 @@ export default async function CoursePage({ params }: { params: { courseID: strin
           </div>
 
           <TitleForm initialData={course} courseID={course.id} />
+
+          <DescriptionForm initialData={course} courseID={course.id} />
         </div>
       </div>
     </div>

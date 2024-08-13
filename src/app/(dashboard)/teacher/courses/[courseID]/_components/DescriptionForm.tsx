@@ -7,25 +7,26 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Pencil } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { Textarea } from "@/components/ui/textarea";
 
-interface TitleFormProps {
+interface DescriptionFormProps {
   initialData: {
-    title: string;
+    description: string | null;
   };
 
   courseID: string;
 }
 
 const formSchema = z.object({
-  title: z.string().min(1, { message: "Title is required." }),
+  description: z.string().min(1, { message: "Description is required." }),
 });
 
-export default function TitleForm({ initialData, courseID }: TitleFormProps) {
+export default function DescriptionForm({ initialData, courseID }: DescriptionFormProps) {
   const [isEditing, setIsEditing] = useState(false);
 
   function toggleEdit() {
@@ -34,9 +35,13 @@ export default function TitleForm({ initialData, courseID }: TitleFormProps) {
 
   const router = useRouter();
 
+  const initialFormValues = {
+    description: initialData.description ?? "",
+  };
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData,
+    defaultValues: initialFormValues,
   });
 
   const { isSubmitting, isValid } = form.formState;
@@ -50,7 +55,7 @@ export default function TitleForm({ initialData, courseID }: TitleFormProps) {
 
       router.refresh();
     } catch (error) {
-      console.log("[TITLE FORM]", error);
+      console.log("[DESCRIPTION FORM]", error);
       toast.error("Something went wrong!");
     }
   }
@@ -58,14 +63,14 @@ export default function TitleForm({ initialData, courseID }: TitleFormProps) {
   return (
     <div className="mt-6 bg-slate-100 rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
-        Course Title
+        Course Description
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing ? (
             <>Cancel</>
           ) : (
             <>
               <Pencil className="w-4 h-4 mr-2" />
-              Edit title
+              Edit description
             </>
           )}
         </Button>
@@ -76,11 +81,11 @@ export default function TitleForm({ initialData, courseID }: TitleFormProps) {
           <form onSubmit={form.handleSubmit(_onSubmit)} className="space-y-4 mt-4">
             <FormField
               control={form.control}
-              name="title"
+              name="description"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input disabled={isSubmitting} placeholder="e.g A random course" type="text" {...field} />
+                    <Textarea disabled={isSubmitting} placeholder="e.g This course is about..." {...field} />
                   </FormControl>
 
                   <FormMessage />
@@ -96,7 +101,9 @@ export default function TitleForm({ initialData, courseID }: TitleFormProps) {
           </form>
         </Form>
       ) : (
-        <p className="text-base mt-2">{initialData.title}</p>
+        <p className={cn("text-base mt-2", !initialData.description && "text-slate-500 italic")}>
+          {initialData.description ?? "No description"}
+        </p>
       )}
     </div>
   );
