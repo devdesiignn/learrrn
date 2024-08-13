@@ -24,7 +24,7 @@ export default function CreateCoursePage() {
 
   const { isSubmitting, isValid } = form.formState;
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const _onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const response = await axios.post("/api/courses", values);
       router.push(`/teacher/courses/${response.data.id}`);
@@ -44,7 +44,7 @@ export default function CreateCoursePage() {
         </p>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-8">
+          <form onSubmit={form.handleSubmit(_onSubmit)} className="space-y-8 mt-8">
             <FormField
               control={form.control}
               name="title"

@@ -33,11 +33,11 @@ const iconVariants = cva("", {
       default: "h-6 w-6",
       sm: "h-4 w-4",
     },
+  },
 
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
+  defaultVariants: {
+    variant: "default",
+    size: "default",
   },
 });
 
