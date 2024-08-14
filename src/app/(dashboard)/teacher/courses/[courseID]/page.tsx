@@ -6,6 +6,7 @@ import { fetchUserID } from "@/utils/fetchUserID";
 import IconBadge from "@/components/IconBadge";
 import TitleForm from "./_components/TitleForm";
 import DescriptionForm from "./_components/DescriptionForm";
+import ImageForm from "./_components/ImageForm";
 
 export default async function CoursePage({ params }: { params: { courseID: string } }) {
   const userID = fetchUserID();
@@ -47,6 +48,8 @@ export default async function CoursePage({ params }: { params: { courseID: strin
           <TitleForm initialData={course} courseID={course.id} />
 
           <DescriptionForm initialData={course} courseID={course.id} />
+
+          <ImageForm initialData={course} courseID={course.id} />
         </div>
       </div>
     </div>
