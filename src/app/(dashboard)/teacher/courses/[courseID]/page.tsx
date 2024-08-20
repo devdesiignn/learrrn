@@ -7,6 +7,7 @@ import IconBadge from "@/components/IconBadge";
 import TitleForm from "./_components/TitleForm";
 import DescriptionForm from "./_components/DescriptionForm";
 import ImageForm from "./_components/ImageForm";
+import CategoryForm from "./_components/CategoryForm";
 
 export default async function CoursePage({ params }: { params: { courseID: string } }) {
   const userID = fetchUserID();
@@ -14,6 +15,12 @@ export default async function CoursePage({ params }: { params: { courseID: strin
   const course = await database.course.findUnique({
     where: {
       id: params.courseID,
+    },
+  });
+
+  const categories = await database.category.findMany({
+    orderBy: {
+      name: "asc",
     },
   });
 
@@ -50,6 +57,15 @@ export default async function CoursePage({ params }: { params: { courseID: strin
           <DescriptionForm initialData={course} courseID={course.id} />
 
           <ImageForm initialData={course} courseID={course.id} />
+
+          <CategoryForm
+            initialData={course}
+            courseID={course.id}
+            options={categories.map((category) => ({
+              label: category.name,
+              value: category.id,
+            }))}
+          />
         </div>
       </div>
     </div>
