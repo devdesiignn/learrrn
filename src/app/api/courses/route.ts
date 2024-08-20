@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { database } from "@/lib/database";
-import nextFetchUserID from "@/utils/nextFetchUserID";
+import nextFetchUserID from "@/lib/nextFetchUserID";
 
 export async function POST(request: Request) {
   try {

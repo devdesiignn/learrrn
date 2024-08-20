@@ -1,13 +1,14 @@
-import { LayoutDashboard } from "lucide-react";
+import { CircleDollarSign, LayoutDashboard, ListChecks } from "lucide-react";
 import { redirect } from "next/navigation";
 
 import { database } from "@/lib/database";
-import { fetchUserID } from "@/utils/fetchUserID";
+import { fetchUserID } from "@/lib/fetchUserID";
 import IconBadge from "@/components/IconBadge";
 import TitleForm from "./_components/TitleForm";
 import DescriptionForm from "./_components/DescriptionForm";
 import ImageForm from "./_components/ImageForm";
 import CategoryForm from "./_components/CategoryForm";
+import PriceForm from "./_components/PriceForm";
 
 export default async function CoursePage({ params }: { params: { courseID: string } }) {
   const userID = fetchUserID();
@@ -66,6 +67,26 @@ export default async function CoursePage({ params }: { params: { courseID: strin
               value: category.id,
             }))}
           />
+        </div>
+
+        <div className="space-y-6">
+          <div>
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={ListChecks} />
+              <h2 className="text-xl">Course chapters</h2>
+            </div>
+
+            <div>Todo: Chapters</div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={CircleDollarSign} />
+              <h2 className="text-xl">Sell your course</h2>
+            </div>
+
+            <PriceForm initialData={course} courseID={course.id} />
+          </div>
         </div>
       </div>
     </div>
