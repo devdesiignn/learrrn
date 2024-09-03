@@ -1,12 +1,13 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, LayoutDashboard } from "lucide-react";
+import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
 
 import { database } from "@/lib/database";
 import { fetchUserID } from "@/lib/fetchUserID";
 import IconBadge from "@/components/IconBadge";
 import ChapterTitleForm from "./_components/ChapterTitleForm";
 import ChapterDescriptionForm from "./_components/ChapterDescriptionForm";
+import ChapterAccessForm from "./_components/ChapterAccessForm";
 
 export default async function ChapterPage({
   params,
@@ -68,6 +69,22 @@ export default async function ChapterPage({
             <ChapterTitleForm initialData={chapter} courseID={params.courseID} chapterID={params.chapterID} />
 
             <ChapterDescriptionForm initialData={chapter} courseID={params.courseID} chapterID={params.chapterID} />
+          </div>
+
+          <div>
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={Eye} />
+              <h2 className="text-xl">Access Settings</h2>
+            </div>
+
+            <ChapterAccessForm initialData={chapter} courseID={params.courseID} chapterID={params.chapterID} />
+          </div>
+        </div>
+
+        <div>
+          <div className="flex items-center gap-x-2">
+            <IconBadge icon={Video} />
+            <h2 className="text-xl">Add a video</h2>
           </div>
         </div>
       </div>

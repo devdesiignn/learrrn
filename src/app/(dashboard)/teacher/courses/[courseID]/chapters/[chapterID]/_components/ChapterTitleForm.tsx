@@ -51,7 +51,7 @@ export default function ChapterTitleForm({ initialData, courseID, chapterID }: C
 
       router.refresh();
     } catch (error) {
-      console.log("[TITLE FORM]", error);
+      console.log("[CHAPTER TITLE FORM]", error);
       toast.error("Something went wrong!");
     }
   }
