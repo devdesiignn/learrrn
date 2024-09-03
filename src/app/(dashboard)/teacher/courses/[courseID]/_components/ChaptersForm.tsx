@@ -76,7 +76,7 @@ export default function ChaptersForm({ initialData, courseID }: ChaptersFormProp
   }
 
   async function _onEdit(id: string) {
-    router.push(`/teacher/courses/${courseID}/chapter/${id}`);
+    router.push(`/teacher/courses/${courseID}/chapters/${id}`);
   }
 
   return (
