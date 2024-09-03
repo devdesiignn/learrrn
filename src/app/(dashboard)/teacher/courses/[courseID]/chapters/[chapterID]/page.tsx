@@ -6,6 +6,7 @@ import { database } from "@/lib/database";
 import { fetchUserID } from "@/lib/fetchUserID";
 import IconBadge from "@/components/IconBadge";
 import ChapterTitleForm from "./_components/ChapterTitleForm";
+import ChapterDescriptionForm from "./_components/ChapterDescriptionForm";
 
 export default async function ChapterPage({
   params,
@@ -65,6 +66,8 @@ export default async function ChapterPage({
             </div>
 
             <ChapterTitleForm initialData={chapter} courseID={params.courseID} chapterID={params.chapterID} />
+
+            <ChapterDescriptionForm initialData={chapter} courseID={params.courseID} chapterID={params.chapterID} />
           </div>
         </div>
       </div>
