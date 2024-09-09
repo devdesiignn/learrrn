@@ -151,7 +151,7 @@ export async function DELETE(
         },
 
         data: {
-          IsPublished: false,
+          isPublished: false,
         },
       });
     }

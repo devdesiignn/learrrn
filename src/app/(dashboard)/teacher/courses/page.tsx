@@ -1,13 +1,24 @@
-import { Button } from "@/components/ui/button";
+import { DataTable } from "./_components/DataTable";
+import { Columns } from "./_components/Columns";
+import { fetchUserID } from "@/lib/fetchUserID";
+import { database } from "@/lib/database";
 
-import Link from "next/link";
+export default async function CoursesPage() {
+  const userID = fetchUserID();
 
-export default function CoursesPage() {
+  const courses = await database.course.findMany({
+    where: {
+      userID,
+    },
+
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
   return (
     <div className="p-6">
-      <Link href={"/teacher/create"}>
-        <Button>Add New Course</Button>
-      </Link>
+      <DataTable columns={Columns} data={courses} />
     </div>
   );
 }

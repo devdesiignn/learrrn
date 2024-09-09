@@ -66,7 +66,7 @@ export default async function CoursePage({ params }: { params: { courseID: strin
 
   return (
     <>
-      {!course.IsPublished && <Banner label="This course is unpublished. It will not be visible to the students." />}
+      {!course.isPublished && <Banner label="This course is unpublished. It will not be visible to the students." />}
 
       <div className="p-6">
         <div className="flex items-center justify-between">
