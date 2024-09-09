@@ -8,6 +8,7 @@ import IconBadge from "@/components/IconBadge";
 import ChapterTitleForm from "./_components/ChapterTitleForm";
 import ChapterDescriptionForm from "./_components/ChapterDescriptionForm";
 import ChapterAccessForm from "./_components/ChapterAccessForm";
+import ChapterVideoForm from "./_components/ChapterVideoForm";
 
 export default async function ChapterPage({
   params,
@@ -86,6 +87,8 @@ export default async function ChapterPage({
             <IconBadge icon={Video} />
             <h2 className="text-xl">Add a video</h2>
           </div>
+          
+          <ChapterVideoForm courseID={params.courseID} ChapterID={params.chapterID} initialData={chapter} />
         </div>
       </div>
     </div>
