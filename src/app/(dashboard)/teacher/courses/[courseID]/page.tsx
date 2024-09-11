@@ -77,7 +77,7 @@ export default async function CoursePage({ params }: { params: { courseID: strin
           </div>
 
           {/* ADD ACTIONS */}
-          <Actions disabled={!isComplete} courseID={params.courseID} isPublished={course.IsPublished} />
+          <Actions disabled={!isComplete} courseID={params.courseID} isPublished={course.isPublished} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">

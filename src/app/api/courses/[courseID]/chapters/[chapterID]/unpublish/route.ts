@@ -45,7 +45,7 @@ export async function PATCH(
         },
 
         data: {
-          IsPublished: false,
+          isPublished: false,
         },
       });
     }
