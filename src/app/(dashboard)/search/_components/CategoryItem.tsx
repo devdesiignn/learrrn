@@ -22,8 +22,6 @@ export default function CategoryItem({ label, icon: Icon, value }: CategoryItemP
 
   const isSelected = currentCategoryID === value;
 
-  console.log(pathname, currentCategoryID, currentTitle);
-
   const _onClick = () => {
     const url = qs.stringifyUrl(
       {
