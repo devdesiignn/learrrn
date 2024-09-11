@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
-import ToastProvider from "@/components/providers/toaster-provider";
-import ConfettiProvider from "@/components/providers/confetti-provider";
+import ToastProvider from "@/components/providers/ToasterProvider";
+import ConfettiProvider from "@/components/providers/ConfettiProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

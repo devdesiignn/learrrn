@@ -2,7 +2,7 @@
 
 import ReactConfetti from "react-confetti";
 
-import { useConfettiStore } from "@/hooks/use-confetti-store";
+import { useConfettiStore } from "@/hooks/useConfettiStore";
 
 export default function ConfettiProvider() {
   const confetti = useConfettiStore();

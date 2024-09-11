@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import ConfirmModal from "@/components/modals/ConfirmModal";
-import { useConfettiStore } from "@/hooks/use-confetti-store";
+import { useConfettiStore } from "@/hooks/useConfettiStore";
 
 interface ActionsProps {
   disabled: boolean;
