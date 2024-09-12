@@ -1,9 +1,13 @@
 import { redirect } from "next/navigation";
+import { File } from "lucide-react";
 
 import { getChapter } from "@/actions/getChapter";
 import Banner from "@/components/Banner";
 import { fetchUserID } from "@/lib/fetchUserID";
 import VideoPlayer from "./_components/VideoPlayer";
+import CourseEnrollButton from "./_components/CourseEnrollButton";
+import RichTextPreview from "@/components/RichTextPreview";
+import { Separator } from "@/components/ui/separator";
 
 export default async function ChapterIDPage({
   params,
@@ -43,6 +47,43 @@ export default async function ChapterIDPage({
             isLocked={isLocked}
             completeOnEnd={completeOnEnd}
           />
+        </div>
+
+        <div>
+          <div className="p-4 flex flex-col md:flex-row items-center justify-between">
+            <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
+
+            {purchase ? (
+              <div>TODO: ADD COURSE PROGRESS BUTTON</div>
+            ) : (
+              <CourseEnrollButton courseID={params.courseID} price={course.price!} />
+            )}
+          </div>
+
+          <Separator />
+
+          <div>
+            <RichTextPreview value={chapter.description!} />
+          </div>
+
+          {!!attachments.length && (
+            <>
+              <Separator />
+
+              <div className="p-4">
+                {attachments.map((attachment) => (
+                  <a
+                    href={attachment.url}
+                    target="_blank"
+                    key={attachment.id}
+                    className="flex items-center p-3 w-full bg-sky-200 border text-sky-700 rounded-md hover:underline">
+                    <File className="h-4 w-4 mr-2" />
+                    <span className="line-clamp-1 block">{attachment.name}</span>
+                  </a>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
