@@ -50,28 +50,39 @@ export async function PATCH(
       });
 
       if (existingMuxData) {
-        await video.assets.delete(existingMuxData.assetID);
+        try {
+          await video.assets.delete(existingMuxData.assetID);
+        } catch (error) {
+          console.log("[Mux Asset Delete]", error);
+        }
+
         await database.muxData.delete({
           where: {
             id: existingMuxData.id,
           },
         });
       }
+
+      try {
+        const asset = await video.assets.create({
+          input: values.videoURL,
+          playback_policy: ["public"],
+          test: false,
+        });
+
+        if (asset) {
+          await database.muxData.create({
+            data: {
+              chapterID: params.chapterID,
+              assetID: asset.id,
+              playback: asset.playback_ids?.["0"].id,
+            },
+          });
+        }
+      } catch (error) {
+        console.log("[Mux Asset Create]", error);
+      }
     }
-
-    const asset = await video.assets.create({
-      input: values.videoURL,
-      playback_policy: ["public"],
-      test: false,
-    });
-
-    await database.muxData.create({
-      data: {
-        chapterID: params.chapterID,
-        assetID: asset.id,
-        playback: asset.playback_ids?.[0]?.id,
-      },
-    });
 
     return NextResponse.json(chapter);
   } catch (error) {
