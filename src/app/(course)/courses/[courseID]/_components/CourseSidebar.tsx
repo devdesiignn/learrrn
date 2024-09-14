@@ -3,6 +3,7 @@ import { Chapter, Course, UserProgress } from "@prisma/client";
 import { fetchUserID } from "@/lib/fetchUserID";
 import { database } from "@/lib/database";
 import CourseSidebarItem from "./CourseSidebarItem";
+import CourseProgress from "@/components/CourseProgress";
 
 interface CourseSidebarProps {
   course: Course & {
@@ -27,10 +28,14 @@ export default async function CourseSidebar({ course, progressCount }: CourseSid
 
   return (
     <div className="h-full border-r flex flex-col overflow-y-auto shadow-sm">
-      <div className="p-8 flex flex-col border-b">
-        <h1 className="font-semibold">{course.title}</h1>
+      <div className="px-8 py-4 flex flex-col border-b">
+        <h1 className="font-semibold mb-4">{course.title}</h1>
 
-        {/* CHECK PURCHASE AND ADD PROGRESS */}
+        {purchase && (
+          <div>
+            <CourseProgress variant={progressCount === 100 ? "success" : "default"} value={progressCount} />
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col w-full">
