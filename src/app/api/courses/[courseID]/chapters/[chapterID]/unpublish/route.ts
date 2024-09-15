@@ -18,7 +18,7 @@ export async function PATCH(
       where: { id: params.courseID, userID },
     });
 
-    if (!ownCourse) return new NextResponse("Unauthorised", { status: 401 });
+    if (!ownCourse) return new NextResponse("Unauthorized", { status: 401 });
 
     const unpublishedChapter = await database.chapter.update({
       where: {

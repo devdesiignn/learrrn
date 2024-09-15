@@ -20,7 +20,7 @@ export async function PUT(
       where: { id: params.courseID, userID },
     });
 
-    if (!ownCourse) return new NextResponse("Unauthorised", { status: 401 });
+    if (!ownCourse) return new NextResponse("Unauthorized", { status: 401 });
 
     for (let item of list) {
       await database.chapter.update({
