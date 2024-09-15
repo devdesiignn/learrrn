@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Udemy-clone](https://devdesiignn-lms.vercel.app/)
 
-## Getting Started
+This project is a Learning Management System (LMS) built to provide students and teachers with a seamless and interactive experience. The platform offers a range of features, from course browsing to progress tracking, and is designed with modern tools for enhanced functionality and scalability.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🌐 Check out the live version of the app [here](https://devdesiignn-lms.vercel.app/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### For Students
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Browse & Filter Courses**: Easily explore various courses using a filtering system to find what you need.
+- **Purchase Courses with Stripe**: Secure and reliable payment integration with Stripe for purchasing courses.
+- **Track Course Progress**: Mark chapters as complete or incomplete, with real-time progress tracking for each course.
+- **Student Dashboard**: View enrolled courses and monitor personal progress across different subjects.
 
-## Learn More
+### For Teachers
 
-To learn more about Next.js, take a look at the following resources:
+- **Teacher Mode**: Switch to teacher mode to create and manage your courses.
+- **Create New Courses and Chapters**: Easily add courses and chapters with a few clicks.
+- **Reorder Chapters with Drag & Drop**: Quickly change the structure of your course using a drag-and-drop interface.
+- **Rich Text Editor**: Describe your course chapters with a fully-featured rich text editor.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Media and Uploads
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Upload Media with UploadThing**: Upload thumbnails, attachments, and videos for your courses.
+- **Video Processing & HLS Player**: Videos are processed using Mux and streamed with an HLS player for smooth playback.
 
-## Deploy on Vercel
+### Authentication and Database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **User Authentication with Clerk**: Secure and efficient authentication solution for both students and teachers.
+- **ORM with Prisma**: Prisma ORM for easy and robust database management.
+- **MySQL Database on Railway**: Database is hosted and managed using Railway with MySQL.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Tech Stack
+
+- **Frontend**: React.js
+- **Backend**: Next.js
+- **Database**: MySQL (Railway)
+- **ORM**: Prisma
+- **Authentication**: Clerk
+- **Payments**: Stripe
+- **Media Uploads**: UploadThing
+- **Video Processing**: Mux
+- **Deployment**: Vercel
+
+## Deployment
+
+This app is deployed using [Vercel](https://vercel.com/), allowing for fast and easy deployment of both the frontend and backend.
