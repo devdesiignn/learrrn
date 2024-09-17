@@ -1,4 +1,4 @@
-# [Udemy-clone](https://devdesiignn-lms.vercel.app/)
+# [Learrrn](https://devdesiignn-lms.vercel.app/)
 
 This project is a Learning Management System (LMS) built to provide students and teachers with a seamless and interactive experience. The platform offers a range of features, from course browsing to progress tracking, and is designed with modern tools for enhanced functionality and scalability.
 
