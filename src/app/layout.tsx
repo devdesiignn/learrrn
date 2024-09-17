@@ -9,7 +9,7 @@ import ConfettiProvider from "@/components/providers/ConfettiProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Udemy Clone",
+  title: "Learrrn LMS",
 };
 
 export default function RootLayout({
