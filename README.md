@@ -1,10 +1,10 @@
-# [Learrrn](https://devdesiignn-lms.vercel.app/)
+# [Learrrn](https://learrrn.vercel.app/)
 
 This project is a Learning Management System (LMS) built to provide students and teachers with a seamless and interactive experience. The platform offers a range of features, from course browsing to progress tracking, and is designed with modern tools for enhanced functionality and scalability.
 
 ## Live Demo
 
-🌐 Check out the live version of the app [here](https://devdesiignn-lms.vercel.app/).
+🌐 Check out the live version of the app [here](https://learrrn.vercel.app/).
 
 ## Key Features
 
